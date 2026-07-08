@@ -8,7 +8,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     replaces = [
         ("icv_taxonomy", "0001_initial"),
         ("icv_taxonomy", "0002_term_scoped_path"),
@@ -40,9 +39,7 @@ class Migration(migrations.Migration):
                 ),
                 (
                     "created_at",
-                    models.DateTimeField(
-                        auto_now_add=True, db_index=True, verbose_name="created at"
-                    ),
+                    models.DateTimeField(auto_now_add=True, db_index=True, verbose_name="created at"),
                 ),
                 (
                     "updated_at",
@@ -157,9 +154,7 @@ class Migration(migrations.Migration):
                 ),
                 (
                     "created_at",
-                    models.DateTimeField(
-                        auto_now_add=True, db_index=True, verbose_name="created at"
-                    ),
+                    models.DateTimeField(auto_now_add=True, db_index=True, verbose_name="created at"),
                 ),
                 (
                     "updated_at",
