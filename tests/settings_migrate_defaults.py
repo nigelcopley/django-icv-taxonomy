@@ -15,10 +15,20 @@ SECRET_KEY = "icv-taxonomy-migrate-test-secret-key"  # noqa: S105
 INSTALLED_APPS = [
     "django.contrib.contenttypes",
     "django.contrib.auth",
-    "icv_core",
     "icv_tree",
     "icv_taxonomy",
 ]
+
+# icv-core is an optional extra; add it only when installed (mirrors
+# tests/settings.py). This regression test is about the icv_taxonomy swappable
+# settings, not icv-core, so it must run whether or not core is present, exactly
+# as a consuming project's CI would (icv-core absent is the common case).
+try:
+    import icv_core  # noqa: F401
+
+    INSTALLED_APPS.insert(2, "icv_core")
+except ImportError:
+    pass
 
 DATABASES = {
     "default": {
